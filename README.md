@@ -8,7 +8,7 @@ This project used express js mocha chai
 and then 
 `npm start`
 * the service will run locally on port 3031.
-* then you can use request to get the result of records
+* then you can use thisrequest to get the result of records
 `curl --location --request POST 'http://localhost:3031/gerit/test' \
 --header 'Content-Type: application/json' \
 --data-raw '{
