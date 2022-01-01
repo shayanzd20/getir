@@ -1,0 +1,8 @@
+node_modules/
+.idea/
+.idea/workspace.xml
+.idea/*
+.vs/
+public/html/
+node_modules/
+*.env

@@ -1,0 +1,206 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Gerit assignment",
+        "description": "this is document of Gerit assignment",
+        "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "host": ["evening-depths-82249.herokuapp.com"],
+    "basePath": "/gerit",
+    "protocol": "https",
+    "paths": {
+        "/test": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "swagTest",
+                "tags": ["get records"],
+                "description": "get records with totalCount from mongodb",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "payload to get records",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Payload"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "response of records",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+
+                        }
+                    },
+                    "400": {
+                        "description": "invalid input",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidInput"
+
+                        }
+                    },
+                    "404": {
+                        "description": "not found",
+                        "schema": {
+                            "$ref": "#/definitions/NotFound"
+
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Payload": {
+            "properties": {
+                "minCount": {
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 3000
+
+                },
+                "maxCount": {
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 5000
+
+                },
+                "startDate": {
+                    "required": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-11-27"
+
+                },
+                "endDate": {
+                    "required": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-11-30"
+
+                }
+            }
+        },
+        "Success": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 0
+
+                },
+                "msg": {
+                    "type": "string",
+                    "example": "Success"
+
+                },
+                "records": {
+                    "type": "array",
+                    "xml": {
+                        "name": "tag",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/Record"
+                    }
+
+                }
+            }
+        },
+        "Record": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "example": "MbqYrEMW"
+                },
+                "createdAt": {
+                    "type": "datetime",
+                    "example": "2016-11-27T19:44:08.270Z"
+                },
+                "totalCount": {
+                    "type": "integer",
+                    "example": 3427
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        },
+        "InvalidInput": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 400
+
+                },
+                "msg": {
+                    "type": "string",
+                    "example": "bad inputs"
+
+                },
+                "inputs": {
+                    "type": "array",
+                    "xml": {
+                        "name": "tag",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/BadInputs"
+                    }
+
+                }
+            }
+        },
+        "NotFound": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 404
+
+                },
+                "msg": {
+                    "type": "string",
+                    "example": "not found"
+
+                }
+            }
+        },
+        "BadInputs": {
+            "properties": {
+                "minCount": {
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 3000
+
+                },
+                "maxCount": {
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 5000
+
+                },
+                "startDate": {
+                    "required": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-11"
+
+                },
+                "endDate": {
+                    "required": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-11"
+
+                }
+            }
+        }
+    }
+}

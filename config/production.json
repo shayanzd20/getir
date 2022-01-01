@@ -1,0 +1,9 @@
+{
+  "type": "prouction",
+  "mongodb": {
+      "url": "mongodb+srv://challenge-xzwqd.mongodb.net",
+      "db": "getir-case-study",
+      "user": "challengeUser",
+      "pass": "WUMglwNBaydH8Yvu"
+  }
+}
