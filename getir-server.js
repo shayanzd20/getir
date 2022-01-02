@@ -1,6 +1,6 @@
 /**
  *
- * @description - Gerit challenge #1
+ * @description - Getir challenge #1
  * @author - Shayan Zeinali
  *
  */
@@ -20,7 +20,7 @@ require("./dbconfig/mongo-connection");
 const port = process.env.PORT || 3031;
 
 /***************  routes  ************************************/
-const geritApi = require("./routers/gerit");
+const getirApi = require("./routers/getir");
 
 const app = express();
 
@@ -63,7 +63,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.set("views", path.join(__dirname, "app/views"));
 app.set("view engine", "ejs");
 
-app.use("/gerit", geritApi);
+app.use("/getir", getirApi);
 app.get("/", async (req, res) => {
 	res.status(200).send("hello world");
 });

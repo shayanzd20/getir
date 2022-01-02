@@ -1,13 +1,13 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Gerit assignment",
-        "description": "this is document of Gerit assignment",
+        "title": "Getir assignment",
+        "description": "this is document of Getir assignment",
         "version": "1.0"
     },
     "produces": ["application/json"],
     "host": ["evening-depths-82249.herokuapp.com"],
-    "basePath": "/gerit",
+    "basePath": "/getir",
     "protocol": "https",
     "paths": {
         "/test": {

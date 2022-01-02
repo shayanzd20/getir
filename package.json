@@ -1,10 +1,10 @@
 {
-	"name": "gerit-server",
+	"name": "getir-server",
 	"version": "1.0.0",
-	"description": "this is gerit server",
-	"main": "gerit-server.js",
+	"description": "this is getir server",
+	"main": "getir-server.js",
 	"scripts": {
-		"start": "babel-node gerit-server.js",
+		"start": "babel-node getir-server.js",
 		"test": "mocha --timeout 10000"
 	},
 	"author": "Shayan Zeinali",

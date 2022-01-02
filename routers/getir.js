@@ -8,9 +8,9 @@ router.use(function timeLog(req, res, next) {
 });
 
 // Controllers
-const { test } = require("../app/controllers/gerit");
+const { test } = require("../app/controllers/getir");
 
-// gerit api
+// getir api
 router.post("/test", test);
 
 module.exports = router;

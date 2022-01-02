@@ -1,6 +1,6 @@
 let chai = require("chai");
 let chaiHttp = require("chai-http");
-let server = require("../gerit-server");
+let server = require("../getir-server");
 
 //Assertion Style
 chai.should();
@@ -11,7 +11,7 @@ describe("Test API", () => {
 	/**
 	 * Test the POST route
 	 */
-	describe("POST /gerit/test", () => {
+	describe("POST /getir/test", () => {
 		it("It should POST payload and get valid records", (done) => {
 			const body = {
 				startDate: "2016-11-27",
@@ -21,7 +21,7 @@ describe("Test API", () => {
 			};
 
 			chai.request(server)
-				.post(`/gerit/test`)
+				.post(`/getir/test`)
 				.send(body)
 				.end((err, response) => {
 					response.should.have.status(200);
@@ -37,10 +37,10 @@ describe("Test API", () => {
 	 * Test the GET route as invalid route
 	 */
 
-	describe("GET /gerit/test with invalid route", () => {
+	describe("GET /getir/test with invalid route", () => {
 		it("It should GET 404 error ", (done) => {
 			chai.request(server)
-				.get("/gerit/test")
+				.get("/getir/test")
 				.end((err, response) => {
 					response.should.have.status(404);
 					done();
@@ -51,7 +51,7 @@ describe("Test API", () => {
 	/**
 	 * Test the invalid params
 	 */
-	describe("POST /gerit/test with invalid params", () => {
+	describe("POST /getir/test with invalid params", () => {
 		it("It should GET error of 400", (done) => {
 			const body = {
 				startDate: "2016-11",
@@ -61,7 +61,7 @@ describe("Test API", () => {
 			};
 
 			chai.request(server)
-				.post(`/gerit/test`)
+				.post(`/getir/test`)
 				.send(body)
 				.end((err, response) => {
 					response.should.have.status(400);
@@ -81,7 +81,7 @@ describe("Test API", () => {
 		};
 
 		chai.request(server)
-			.post(`/gerit/test`)
+			.post(`/getir/test`)
 			.send(body)
 			.end((err, response) => {
 				response.should.have.status(200);

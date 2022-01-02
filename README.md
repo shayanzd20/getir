@@ -10,7 +10,7 @@ This project used express js mocha chai
     `npm start`
 -   the service will run locally on port 3031.
 -   then you can use this request to get the result of records\
-    `curl --location --request POST 'http://localhost:3031/gerit/test' \ --header 'Content-Type: application/json' \ --data-raw '{ "startDate": "2017-01-26", "endDate": "2017-12-02", "minCount": 100, "maxCount": 3000 }'`
+    `curl --location --request POST 'http://localhost:3031/getir/test' \ --header 'Content-Type: application/json' \ --data-raw '{ "startDate": "2017-01-26", "endDate": "2017-12-02", "minCount": 100, "maxCount": 3000 }'`
 
 -   lcm endpoint will find their least common multiple (LCM).
 
