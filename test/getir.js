@@ -1,8 +1,9 @@
-let chai = require("chai");
-let chaiHttp = require("chai-http");
-let server = require("../getir-server");
+/* global describe, it */
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const server = require("../getir-server");
 
-//Assertion Style
+// Assertion Style
 chai.should();
 
 chai.use(chaiHttp);

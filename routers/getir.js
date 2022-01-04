@@ -1,8 +1,9 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+
+const router = express.Router();
 
 // middleware for time
-router.use(function timeLog(req, res, next) {
+router.use((req, res, next) => {
 	console.log("Time: ", Date.now());
 	next();
 });

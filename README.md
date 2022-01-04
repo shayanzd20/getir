@@ -31,3 +31,10 @@ the project deployed on this url \
 
 and document\
 (https://quiet-gorge-53660.herokuapp.com/api-docs).
+
+## Lint
+
+In order to analyze the code and lint the project, you need to install below packages\
+`npm i s -D eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-plugin-node`\
+
+the .eslint.js config file configered proparely and you just need to run `npm run lint`

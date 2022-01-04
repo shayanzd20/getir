@@ -14,17 +14,18 @@ const cors = require("cors");
 
 console.log("environment --->", config.get("type"));
 
-/***************Mongodb configuratrion********************/
+/** *************Mongodb configuratrion******************* */
 require("./dbconfig/mongo-connection");
 
 const port = process.env.PORT || 3031;
 
-/***************  routes  ************************************/
+/** *************  routes  *********************************** */
+const swaggerUi = require("swagger-ui-express");
 const getirApi = require("./routers/getir");
 
 const app = express();
 
-/***************  middlewares  ************************************/
+/** *************  middlewares  *********************************** */
 app.use(cors());
 app.use(express.static("./tmp"));
 app.use(express.static("public"));
@@ -45,21 +46,20 @@ app.use((req, res, next) => {
 		"Access-Control-Allow-Headers,Origin,Accept,X-Requested-With,Content-Type,Cache-Control,X-Auth-Token,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization"
 	);
 
-	if ("OPTIONS" === req.method) {
+	if (req.method === "OPTIONS") {
 		res.sendStatus(204);
 	} else {
-		//move on
+		// move on
 		next();
 	}
 });
 
-/*************** documentation ********************/
-var swaggerUi = require("swagger-ui-express");
-var swaggerDocument = require("./swagger.json");
+/** ************* documentation ******************* */
+const swaggerDocument = require("./swagger.json");
 // setup swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-/***************   routers  ************************************/
+/** *************   routers  *********************************** */
 app.set("views", path.join(__dirname, "app/views"));
 app.set("view engine", "ejs");
 
@@ -68,11 +68,11 @@ app.get("/", async (req, res) => {
 	res.status(200).send("hello world");
 });
 
-//launch =======================================================================
+// launch =======================================================================
 app.listen(port, () => console.log(`Listening on port http://localhost:${port} ...`));
 
-//catch 404 and forward to error handler =======================================
-app.use(function (req, res, next) {
+// catch 404 and forward to error handler =======================================
+app.use((req, res, next) => {
 	res.status(404).json({ code: 404, msg: "not found" });
 });
 

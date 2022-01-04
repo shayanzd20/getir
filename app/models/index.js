@@ -1,3 +1,1 @@
-module.exports = {
-	record: require("../models/recordModel"),
-};
+module.exports.record = require("./recordModel");
